@@ -6,6 +6,10 @@
     "moduleResolution": "Bundler",
     "outDir": "./dist",
     "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["*"]
+    },
     "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
