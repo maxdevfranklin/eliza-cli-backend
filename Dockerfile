@@ -22,7 +22,6 @@ COPY tsconfig.json ./
 # Copy the rest of the application code
 COPY ./src ./src
 COPY ./characters ./characters
-COPY ./actions ./actions
 
 # Install dependencies and build the project
 RUN pnpm install 
