@@ -4,7 +4,7 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts --external @elizaos/* --external @tavily/* --external amqplib --external better-sqlite3 --external fs --external net --external path --external readline --external url --external ws --external yargs",
+    "build": "tsup src/index.ts actions/*.ts --format esm --dts --external @elizaos/* --external @tavily/* --external amqplib --external better-sqlite3 --external fs --external net --external path --external readline --external url --external ws --external yargs",
     "start": "tsc && node --loader ts-node/esm src/index.ts",
     "clean": "./scripts/clean.sh",
     "start:service:all": "pm2 start pnpm --name=\"all\" --restart-delay=3000 --max-restarts=10 -- run start:all",
