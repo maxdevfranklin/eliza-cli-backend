@@ -22,6 +22,7 @@ COPY tsconfig.json ./
 # Copy the rest of the application code
 COPY ./src ./src
 COPY ./characters ./characters
+COPY ./actions ./actions
 
 # Install dependencies and build the project
 RUN pnpm install 
@@ -52,10 +53,11 @@ COPY --from=builder /app/package.json /app/
 COPY --from=builder /app/node_modules /app/node_modules
 COPY --from=builder /app/src /app/src
 COPY --from=builder /app/characters /app/characters
-COPY --from=builder /app/dist /app/dist
+COPY --from=builder /app/actions /app/actions
 COPY --from=builder /app/tsconfig.json /app/
 COPY --from=builder /app/pnpm-lock.yaml /app/
 
 EXPOSE 3000
+
 # Set the command to run the application
-CMD ["pnpm", "start --characters=\"characters/grace.json\"", "--non-interactive"]
+CMD ["pnpm", "start", "--characters=characters/grace.json", "--non-interactive"]
